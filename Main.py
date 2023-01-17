@@ -1,15 +1,75 @@
 import random
 
 
+# This function takes an array (the tic tac toe board) and a value
+# It then returns any indexes that are adjacent to the value and contain the value 0
+def adjacentZeroes(arr, val):
+    out = []
+    adjToZero = []
+
+    # We are given an array of length 9, and need to find adjacent 0s to val
+    for index, arrVal in enumerate(arr):
+        if arrVal == 0:
+
+            # We will check the 8 surrounding values to see if they are vals or if they even exist
+            # The 8 values can be represented: [index - 1 - 3, index - 3, index + 1 - 3, index - 1, index + 1,
+            #                                   index - 1 + 3, index + 3, index -3 + 1]
+            # We want to make sure this code could potentially used for higher dimension boards, so we will use the
+            # "-3 + 1" type of format instead of just checking all of the values between index - 4 and index + 4
+
+            # Set the dimension to 3
+            dimension = 3
+
+            # Adjacent indexes
+            adjIndexes = [index - 1 - dimension, index - dimension, index + 1 - dimension, index - 1, index + 1,
+                          index - 1 + dimension, index + dimension, index - dimension + 1]
+
+            for adjIndex in adjIndexes:
+                try:
+                    if arr[adjIndex] == val and not out.__contains__(index):
+                        out.append(index)
+                except IndexError:
+                    continue
+
+    return out
+
+
 # This function takes the current board and returns the "bot's" move
 def calculateMove(arr):
     # Options for the bot to play
     options = []
+    exampleMatrix = arr
 
     # Go through all board spaces and if the value is 0 (has not been played on), add the index to the options list
     for valIndex, val in enumerate(arr):
         if val == 0:
             options.append(valIndex)
+
+    # Check if any moves can result in a win
+    for option in options:
+
+        exampleMatrix[option] = 2
+
+        if checkBoard(exampleMatrix, 2):
+            return option
+
+        exampleMatrix[option] = 0
+
+    # Check if any moves that the player makes will result in a win for the player
+    for option in options:
+
+        exampleMatrix[option] = 1
+
+        if checkBoard(exampleMatrix, 1):
+            return option
+
+        exampleMatrix[option] = 0
+
+    # If there are no moves that either block the player from a win or win the game for the computer,
+    # Play something adjacent to the previous move (if there has been a move)
+    if arr.__contains__(2):
+        adjacentVals = adjacentZeroes(arr, 2)
+        return adjacentVals[random.randint(0, len(adjacentVals) - 1)]
 
     # Return a random move from options
     return options[random.randint(0, len(options) - 1)]
