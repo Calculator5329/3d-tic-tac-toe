@@ -214,13 +214,14 @@ while run:
             exitProgram()
 
         # Check if the computer won
-        if checkBoard(matrix, 2):
+        elif checkBoard(matrix, 2):
             print("You have lost. Better luck next time!")
             exitProgram()
 
         # If neither won, the game ends in a tie
-        print("This game ended in a draw. Better luck next time!")
-        exitProgram()
+        else:
+            print("This game ended in a draw. Better luck next time!")
+            exitProgram()
 
     # The computer plays a move
     matrix[calculateMove(matrix)] = 2
