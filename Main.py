@@ -62,6 +62,20 @@ def checkBoard(arr, val):
     return out
 
 
+# This function offers to play again, then restarts or exits the program
+def exitProgram():
+    global run
+    global matrix
+    answer = input("Would you like to play again? (Y/N): ").upper()
+    if answer == "Y":
+        run = True
+        matrix = [0, 0, 0,
+                  0, 0, 0,
+                  0, 0, 0]
+    else:
+        exit()
+
+
 matrix = [0, 0, 0,
           0, 0, 0,
           0, 0, 0]
@@ -118,16 +132,16 @@ while run:
         # Check if the player won
         if checkBoard(matrix, 1):
             print("Congratulations! You have won!")
-            exit()
+            exitProgram()
 
         # Check if the computer won
         if checkBoard(matrix, 2):
             print("You have lost. Better luck next time!")
-            exit()
+            exitProgram()
 
         # If neither won, the game ends in a tie
         print("This game ended in a draw. Better luck next time!")
-        exit()
+        exitProgram()
 
     # Play the users move
     matrix[userVal] = 1
@@ -137,16 +151,16 @@ while run:
         # Check if the player won
         if checkBoard(matrix, 1):
             print("Congratulations! You have won!")
-            exit()
+            exitProgram()
 
         # Check if the computer won
         if checkBoard(matrix, 2):
             print("You have lost. Better luck next time!")
-            exit()
+            exitProgram()
 
         # If neither won, the game ends in a tie
         print("This game ended in a draw. Better luck next time!")
-        exit()
+        exitProgram()
 
     # The computer plays a move
     matrix[calculateMove(matrix)] = 2
@@ -168,9 +182,9 @@ while run:
     # Check if the player won
     if checkBoard(matrix, 1):
         print("Congratulations! You have won!")
-        exit()
+        exitProgram()
 
     # Check if the computer won
     if checkBoard(matrix, 2):
         print("You have lost. Better luck next time!")
-        exit()
+        exitProgram()
