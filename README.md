@@ -1,2 +1,2 @@
 # 3DTicTacToe
-This is the start of my 3D Tic Tac Toe Program. Currently it only works for one 2D board (regular Tic Tac Toe).
+This is my 3D Tic Tac Toe Program. I plan to add future functionality for more boards/dimensions.
