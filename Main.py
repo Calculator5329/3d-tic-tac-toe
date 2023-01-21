@@ -122,7 +122,7 @@ def checkBoard(arr, val):
             if containsVals.__contains__(initialSpot + 1) and containsVals.__contains__(initialSpot + 2):
                 out = True
 
-    # Check horizontal wins
+    # Check vertical wins
     for initialSpot in [0, 1, 2, 9, 10, 11, 18, 19, 20]:
         if containsVals.__contains__(initialSpot):
             if containsVals.__contains__(initialSpot + 3) and containsVals.__contains__(initialSpot + 6):
@@ -183,6 +183,11 @@ def checkBoard(arr, val):
     5, 13, 21 (left) + 8
     7, 13, 19 (up) +6
     """
+    # Check up and down combinations
+    for initialSpot in [0, 1, 2, 3, 4, 5, 6, 7, 8]:
+        if containsVals.__contains__(initialSpot):
+            if containsVals.__contains__(initialSpot + 9) and containsVals.__contains__(initialSpot + 18):
+                out = True
 
     # Check right-facing "through-board" combinations (+10)
     for initialSpot in [0, 3, 6]:
