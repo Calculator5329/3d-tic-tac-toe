@@ -23,11 +23,11 @@ The game board consists of 27 spots, spread across three layers (bottom, middle,
 
   Bottom   Middle      Top   
   
-| 1 2 3 | 10 11 12 | 19 20 21 |  
+| 1  2  3 | 10  11  12 | 19  20  21 |  
 
-| 4 5 6 | 13 14 15 | 22 23 24 |  
+| 4  5  6 | 13  14  15 | 22  23  24 |  
 
-| 7 8 9 | 16 17 18 | 25 26 27 |  
+| 7  8  9 | 16  17  18 | 25  26  27 |  
 
 ## Requirements
 Python 3.x
