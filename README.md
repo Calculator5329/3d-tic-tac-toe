@@ -32,5 +32,7 @@ The game board consists of 27 spots, spread across three layers (bottom, middle,
 ## Requirements
 Python 3.x
 No external libraries required.
+
 Installation and Execution
+
 To run the game, ensure Python 3.x is installed. Clone or download the repository, navigate to the project directory, and execute the script.
