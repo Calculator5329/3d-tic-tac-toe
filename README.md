@@ -22,8 +22,11 @@ Play Against the Bot: The computer will make its move after yours. The game chec
 The game board consists of 27 spots, spread across three layers (bottom, middle, top), each containing 9 positions:
 
   Bottom   Middle      Top 
+  
 | 1 2 3 | 10 11 12 | 19 20 21 |
+
 | 4 5 6 | 13 14 15 | 22 23 24 |
+
 | 7 8 9 | 16 17 18 | 25 26 27 |
 
 ## Requirements
